@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>cart</title>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-analytics.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.15.1/firebase-firestore.js"></script>
+
+  </head>
+
+  <body background="https://i0.wp.com/mainlymiles.com/wp-content/uploads/2018/08/groceries-background-e1533097069889.jpg?resize=1236%2C629&ssl=1">
+    
+
+   
+    <script src="https://unpkg.com/vue"></script>
+   
+    <script>
+
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAYdTuqKgPChgGjpWiQXsKA-mCMqbEBdEw",
+        authDomain: "test-b9f3e.firebaseapp.com",
+        databaseURL: "https://test-b9f3e.firebaseio.com",
+        projectId: "test-b9f3e",
+        storageBucket: "test-b9f3e.appspot.com",
+        messagingSenderId: "420920876346",
+        appId: "1:420920876346:web:3569d29e734618f7f58403",
+        measurementId: "G-FHBEEQ2WEW"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      // var db = firebase.firestore();
+      firebase.analytics();
+    </script>
+
+<script>
+
+
+// console.log(products1)
+
+  // const collection = db.collection("Test");
+  // const products1 = [];
+  // collection.get().then(snapshot => {
+  //   snapshot.forEach(doc => {
+      
+  //     products1.push(doc.data());
+  //     console.log(products1);
+  //   })
+  // })
+
+ 
+
+
+</script>
+
+    
+
+<h1>List Of Products</h1>
+<div id="app" >
+
+  <table>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+    </tr>
+    <tr v-for="product in products">
+      <td>{{product.name}}</td>
+      <td>
+        <input type="number" v-model.number="product.qty" /><spam
+          v-if=" product.qty== 0"
+          >OUT OF STOCK</spam
+        >
+      </td>
+    </tr>
+  </table>
+
+
+  <h3> Total Products: {{ totalProducts }}</h3>
+  <br></br>
+  <h1>Add Products</h1>
+  <input type="text" placeholder="Product Name" id="name2"> <input placeholder="qty" id="qty2"> 
+  <button onclick="addEle(); window.location.reload();">Add</button>
+</div>
+
+
+<script>
+
+
+    const app = new Vue({
+  el: '#app',
+  
+  data: () => ({
+     products:[],
+    // Ele:'',
+    // quanty:0
+  }),
+//   firestore: {
+//     products: db.collection('Test')
+    
+//   },
+//   computed: {
+//     totalProducts () {
+//       return this.products.reduce((sum,product) => {
+//         return sum+Number(product.qty)},0)
+      
+//     }
+//   },
+  
+//   methods: {
+//     addEle:function() {
+//   var name2=document.getElementById("name2").value;
+//   var qty2=document.getElementById("qty2").value;
+
+
+//       db.collection("Test").add({name:name2, qty:qty2})
+//       .then(function(docRef) {
+//     console.log("Document written with ID: ", docRef.id);
+// })
+// .catch(function(error) {
+//     console.error("Error adding document: ", error);
+// });
+//     }
+//   }
+})
+
+</script>
+    
+
+
+  </body>
+</html>
